@@ -1,0 +1,29 @@
+
+<% layout('layouts/main') -%>
+
+<main class="d-flex align-items-center justify-content-center">
+    <div class="container py-5">
+      <div class="d-flex justify-content-center">
+        <div id="form-login" class="bg-white shadow-sm" style="width: 360px;">
+
+          <h2 class="h4 text-center mb-3">Entrar</h2>
+
+          <form >
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="email" name="email"  required />
+            </div>
+
+            <div class="mb-2">
+              <label for="password" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="password" name="password" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./build/app.js"></script>
