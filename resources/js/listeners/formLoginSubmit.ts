@@ -10,7 +10,15 @@ export default async function submitLoginHandler(event: SubmitEvent) {
 
     const data = await callLoginApi(emailElement.value, passwordElement.value);
 
+
+
     if ("error" in data) {
+        document.getElementById("loginErrorCard")?.classList.remove("d-none");
+
+        setTimeout(() => {
+            document.getElementById("loginErrorCard")?.classList.add("d-none");
+        }, 5000);
+
         return;
     }
 

@@ -13,7 +13,7 @@ export default function JwtVerifyViewMiddleware(request, response, next) {
 
     try {
         const userDecoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log(userDecoded);
+
         request.user = userDecoded;
         return next();
     } catch (err) {
