@@ -1,13 +1,15 @@
 import jwt from 'jsonwebtoken';
 
 export default function JwtVerifyViewMiddleware(request, response, next) {
+
+    const HEADER_TEXT = "Aula 07 - V de Views, SSR e SSG";
     const { token } = request.cookies;
 
     console.log(request.cookies);
 
     if (!token) {
         return response.render("login", {
-            header: "Aula 06 - V de Views, SSR, SSG, ISR"
+            header: HEADER_TEXT
         });
     }
 
@@ -18,7 +20,7 @@ export default function JwtVerifyViewMiddleware(request, response, next) {
         return next();
     } catch (err) {
         return response.render("login", {
-            header: "Aula 06 - V de Views, SSR, SSG, ISR"
+            header: HEADER_TEXT
         });
     }
 
