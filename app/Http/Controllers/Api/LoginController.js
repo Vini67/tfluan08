@@ -47,7 +47,10 @@ export default async (request, response) => {
 
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 
+        //4. Inserir cookie
+
         const COOKIE_MAX_AGE_MS = JWT_EXPIRES_IN_MINUTES * 60 * 1000;
+
         response.cookie('token', token, {
             maxAge: COOKIE_MAX_AGE_MS,
         });

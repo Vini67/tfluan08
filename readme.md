@@ -1,4 +1,4 @@
-# Unifaat :: Frontend :: Aula 05 - Pré-compiladores, TypeScript, Armazenamento Local <a name="unifaat-frontend-aula05-precompiladores-typescript-armazenamento"></a>
+# Unifaat :: Frontend :: Aula 07 - V de Views, SSR e SSG <a name="unifaat-frontend-aula07-views-ssr-ssg"></a>
 
 ## 📑 Sumário
 
@@ -25,13 +25,13 @@
 1. Clonar o repositório:
 
    ```sh
-   git clone https://github.com/luan-tavares/unifaat-frontend-aula05-precompiladores-typescript-armazenamento
+   git clone https://github.com/luan-tavares/unifaat-frontend-aula07-views-ssr-ssg
    ```
 
 2. Entrar na pasta do projeto:
 
    ```sh
-   cd unifaat-frontend-aula05-precompiladores-typescript-armazenamento
+   cd unifaat-frontend-aula07-views-ssr-ssg
    ```
 
 3. Criar o arquivo `.env` na raiz do projeto copiando o `.env.example`:

@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { readdir } from 'fs';
 
-export default async (request, response) => {
+export default async function ListPublicFilesController(request, response) {
 
     const dirPath = join(CONSTANTS.DIR, 'public');
 

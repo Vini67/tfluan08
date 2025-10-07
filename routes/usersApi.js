@@ -7,7 +7,7 @@ import DeleteController from '../app/Http/Controllers/User/Api/DeleteController.
 import UploadPhotoController from '../app/Http/Controllers/User/Api/UploadPhotoController.js';
 import VerifyImage from '../app/Http/Middlewares/VerifyImage.js';
 
-export default (function () {
+export const usersApi = (function () {
 
     const router = Router();
 

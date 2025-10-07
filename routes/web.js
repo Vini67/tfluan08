@@ -5,19 +5,15 @@ import swaggerUi from 'swagger-ui-express';
 
 import ListPublicFilesController from '../app/Http/Controllers/ListPublicFilesController.js';
 import swaggerGenerate from '../Core/SwaggerCore/swaggerGenerate.js';
-import LoginViewController from '../app/Http/Controllers/LoginViewController.js';
 import UserViewController from '../app/Http/Controllers/User/UserViewController.js';
-import VerifyJwtViewMiddleware from '../app/Http/Middlewares/VerifyJwtViewMiddleware.js';
+import JwtVerifyViewMiddleware from '../app/Http/Middlewares/JwtVerifyViewMiddleware.js';
 import SSRController from '../app/Http/Controllers/SSRController.js';
 
 export default (function () {
 
     const router = Router();
 
-    // Login view
-    router.get('/', LoginViewController);
-
-    router.get('/users', VerifyJwtViewMiddleware, UserViewController);
+    router.get('/users', JwtVerifyViewMiddleware, UserViewController);
 
     router.get('/ssr', SSRController);
 

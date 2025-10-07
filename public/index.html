@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aula 07 - V de Views, SSR e SSG</title>
+
+  <link rel="stylesheet" href="./build/app.css">
+</head>
+
+<body class="bg-white text-dark">
+
+  <header class="py-4">
+    <h1 class="container fw-bold fs-2 text-center text-white">
+      Aula 07 - V de Views, SSR e SSG
+    </h1>
+  </header>
+
+  <main class="container my-4">
+   
+    <div class="card border-0 shadow-sm rounded-4">
+      <div class="card-body p-0">
+        <ul class="list-group rounded-4 overflow-hidden">
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">1 - Mudar configuração do Vite para pré-compilar direto alguns assets</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">2 - Apresentar como bootstrap foi inserido no css</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">3 - Devido a isso, voltar as imagens e o primeiro index ao <code>public</code></span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">4 - Apresentar o controlador <code>app/Http/Controllers/SSRController.js</code>, sua rota <code>/ssr-exemplo</code>.</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">5 - Apresentar a lib <code>ejs-mate</code>, engine de view EJS</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">6 - Usar a lib <code>cookie-parser</code> em <code>routes/routes.js</code> para manipular cookies no ciclo de requsição http.</span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">7 - Modificar a API de Login para inserir cookies <code>app/Http/Controllers/Api/LoginController.js</code></span>
+          </li>
+          <li class="list-group-item d-flex align-items-center py-3">
+            <span class="me-3 fw-semibold">8 - Apresentar o middleware <code>app/Http/Middlewares/JwtVerifyViewMiddleware.js</code> para verificação de JWT no html</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="py-3 text-white text-center">
+    <div class="container text-center">Frontend 2025.2</div>
+  </footer>
+
+  <script type="module" src="./build/app.js"></script>
+</body>
+
+</html>

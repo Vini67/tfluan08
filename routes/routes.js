@@ -3,12 +3,12 @@ import express from 'express';
 import web from './web.js';
 import fileUpload from 'express-fileupload';
 import CorsMiddleware from '../app/Http/Middlewares/CorsMiddleware.js';
-import JwtMiddleware from '../app/Http/Middlewares/JwtMiddleware.js';
 import LoginController from '../app/Http/Controllers/Api/LoginController.js';
 import path from "path";
 import ejsMate from "ejs-mate";
-import usersApi from './usersApi.js';
 import cookieParser from 'cookie-parser';
+import JwtVerifyApiMiddleware from '../app/Http/Middlewares/JwtVerifyApiMiddleware.js';
+import { usersApi } from './usersApi.js';
 
 export default (function () {
 
@@ -33,7 +33,7 @@ export default (function () {
     app.post("/login", LoginController);
 
     //Users
-    app.use("/api/users", JwtMiddleware, CorsMiddleware, usersApi);
+    app.use("/api/users", JwtVerifyApiMiddleware, CorsMiddleware, usersApi);
 
     //// Views
     app.use('/', web);

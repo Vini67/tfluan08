@@ -1,15 +1,14 @@
 import jwt from 'jsonwebtoken';
 
-export default (request, response, next) => {
+export default function JwtVerifyApiMiddleware(request, response, next) {
 
-    /** No request tambem podemos trabalhar com o request */
     const authHeader = request.headers['authorization'];
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return response.status(401).json({ error: 'Token não fornecido' });
     }
 
-    const token = authHeader.split(' ')[1]; // pega o valor após 'Bearer '
+    const token = authHeader.split(' ')[1] ?? request.cookies?.token;
 
     try {
         const userDecoded = jwt.verify(token, process.env.JWT_SECRET);
