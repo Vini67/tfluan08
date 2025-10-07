@@ -18,34 +18,97 @@
     </h1>
   </header>
 
-  <main class="container my-4">
-   
-    <div class="card border-0 shadow-sm rounded-4">
+  <main class="container my-4 d-flex align-items-center">
+    <div class="card border-0 shadow rounded-4 w-100">
       <div class="card-body p-0">
         <ul class="list-group rounded-4 overflow-hidden">
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">1 - Mudar configuração do Vite para pré-compilar direto alguns assets</span>
+          <!-- 1 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">1</span>
+              <i class="bi bi-gear-wide-connected me-2"></i>
+              <span class="fw-semibold">Mudar configuração do Vite para pré-compilar direto alguns assets</span>
+            </div>
+            <span class="badge text-bg-light border">build</span>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">2 - Apresentar como bootstrap foi inserido no css</span>
+  
+          <!-- 2 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">2</span>
+              <i class="bi bi-filetype-css me-2"></i>
+              <span class="fw-semibold">Apresentar como Bootstrap foi inserido no CSS</span>
+            </div>
+            <span class="badge text-bg-light border">assets</span>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">3 - Devido a isso, voltar as imagens e o primeiro index ao <code>public</code></span>
+  
+          <!-- 3 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">3</span>
+              <i class="bi bi-image me-2"></i>
+              <span class="fw-semibold">Devido a isso, voltar as imagens e o primeiro index ao <code>public</code></span>
+            </div>
+            <span class="badge text-bg-light border">public</span>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">4 - Apresentar o controlador <code>app/Http/Controllers/SSRController.js</code>, sua rota <code>/ssr-exemplo</code>.</span>
+  
+          <!-- 4 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">4</span>
+              <i class="bi bi-diagram-3 me-2"></i>
+              <span class="fw-semibold">Apresentar o controlador <code>app/Http/Controllers/SSRController.js</code>, sua rota <code>/ssr-exemplo</code>.</span>
+            </div>
+            <div class="d-flex gap-2">
+              <span class="badge text-bg-light border">controller</span>
+              <span class="badge text-bg-light border">route</span>
+            </div>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">5 - Apresentar a lib <code>ejs-mate</code>, engine de view EJS</span>
+  
+          <!-- 5 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">5</span>
+              <i class="bi bi-puzzle-fill me-2"></i>
+              <span class="fw-semibold">Apresentar a lib <code>ejs-mate</code>, engine de view EJS</span>
+            </div>
+            <span class="badge text-bg-light border">views</span>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">6 - Usar a lib <code>cookie-parser</code> em <code>routes/routes.js</code> para manipular cookies no ciclo de requsição http.</span>
+  
+          <!-- 6 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">6</span>
+              <i class="bi bi-cookie me-2"></i>
+              <span class="fw-semibold">Usar a lib <code>cookie-parser</code> em <code>routes/routes.js</code> para manipular cookies no ciclo de requisição HTTP.</span>
+            </div>
+            <div class="d-flex gap-2">
+              <span class="badge text-bg-light border">cookies</span>
+              <span class="badge text-bg-light border">http</span>
+            </div>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">7 - Modificar a API de Login para inserir cookies <code>app/Http/Controllers/Api/LoginController.js</code></span>
+  
+          <!-- 7 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">7</span>
+              <i class="bi bi-shield-lock me-2"></i>
+              <span class="fw-semibold">Modificar a API de Login para inserir cookies <code>app/Http/Controllers/Api/LoginController.js</code></span>
+            </div>
+            <span class="badge text-bg-light border">auth</span>
           </li>
-          <li class="list-group-item d-flex align-items-center py-3">
-            <span class="me-3 fw-semibold">8 - Apresentar o middleware <code>app/Http/Middlewares/JwtVerifyViewMiddleware.js</code> para verificação de JWT no html</span>
+  
+          <!-- 8 -->
+          <li class="list-group-item d-flex align-items-center justify-content-between py-3 list-group-item-action">
+            <div class="d-flex align-items-center">
+              <span class="badge rounded-pill text-bg-primary me-3">8</span>
+              <i class="bi bi-shield-check me-2"></i>
+              <span class="fw-semibold">Apresentar o middleware <code>app/Http/Middlewares/JwtVerifyViewMiddleware.js</code> para verificação de JWT no HTML</span>
+            </div>
+            <div class="d-flex gap-2">
+              <span class="badge text-bg-light border">jwt</span>
+              <span class="badge text-bg-light border">middleware</span>
+            </div>
           </li>
         </ul>
       </div>

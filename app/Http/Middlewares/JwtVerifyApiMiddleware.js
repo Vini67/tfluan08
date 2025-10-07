@@ -2,13 +2,30 @@ import jwt from 'jsonwebtoken';
 
 export default function JwtVerifyApiMiddleware(request, response, next) {
 
-    const authHeader = request.headers['authorization'];
+    const getToken = () => {
+        let token = request.cookies?.token ?? null;
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return response.status(401).json({ error: 'Token não fornecido' });
+        if (token !== null) {
+            return token;
+        }
+
+        const authHeader = request.headers['authorization'];
+
+        token = request.cookies?.token;
+
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return null
+        }
+
+        return authHeader.split(' ')[1];
+
     }
 
-    const token = authHeader.split(' ')[1] ?? request.cookies?.token;
+    const token = getToken();
+
+    if (token === null) {
+        return response.status(401).json({ error: 'Token não fornecido' });
+    }
 
     try {
         const userDecoded = jwt.verify(token, process.env.JWT_SECRET);

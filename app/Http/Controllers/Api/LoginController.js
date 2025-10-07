@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import UserModel from '../../../Models/UserModel.js';
 
-export default async (request, response) => {
+export default async function LoginController(request, response) {
 
     const email = request.body.email;
     const password = request.body.password;
@@ -42,7 +42,7 @@ export default async (request, response) => {
         const payload = {
             id: userModel.id,
             email: userModel.email,
-            name: userModel.nome
+            name: userModel.name
         };
 
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
