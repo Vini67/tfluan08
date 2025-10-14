@@ -22,3 +22,4 @@ app.listen(nodePort, () => {
     console.log(chalk.green(`Servidor: http://localhost:${webPort}`));
     console.log(chalk.yellow(`Apis Swagger: http://localhost:${webPort}/docs`));
 });
+

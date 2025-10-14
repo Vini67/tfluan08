@@ -20,8 +20,8 @@ export default defineConfig({
         manifest: true,
         rollupOptions: {
             input: [
-                "./resources/js/app.ts",
-                "./resources/css/app.css"
+                path.resolve(__dirname, 'resources/js/app.ts'),
+                path.resolve(__dirname, 'resources/css/app.css')
             ],
             output: {
                 assetFileNames: '[name][extname]',
@@ -31,3 +31,4 @@ export default defineConfig({
         }
     }
 })
+

@@ -5,30 +5,33 @@ import swaggerUi from 'swagger-ui-express';
 
 import ListPublicFilesController from '../app/Http/Controllers/ListPublicFilesController.js';
 import swaggerGenerate from '../Core/SwaggerCore/swaggerGenerate.js';
-import UserViewController from '../app/Http/Controllers/User/UserViewController.js';
+import { UserViewController } from '../app/Http/Controllers/User/UserViewController.js';
 import JwtVerifyViewMiddleware from '../app/Http/Middlewares/JwtVerifyViewMiddleware.js';
 import SSRController from '../app/Http/Controllers/SSRController.js';
 
-export default (function () {
+// Defina ou importe CONSTANTS.DIR corretamente
+const CONSTANTS = {
+    DIR: path.resolve()
+};
 
+export default (function () {
     const router = Router();
 
-    router.get('/users', JwtVerifyViewMiddleware, UserViewController);
+    // Rota protegida para users (SSR)
+    router.get('/users', JwtVerifyViewMiddleware, UserViewController.index);
 
     router.get('/ssr', SSRController);
 
-    /** Servir o public estaticamente, tanto para arquivos como para os assets de frontend */
-    // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
+    // Servir arquivos estáticos da pasta public
     router.use(express.static(path.join(CONSTANTS.DIR, 'public')));
 
     // Rota para listar arquivos na pasta 'public'
-    // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
     router.get('/', ListPublicFilesController);
 
     // Documentação Swagger
     router.use('/docs', swaggerUi.serve, swaggerGenerate);
 
-
     return router;
-
 })();
+
+

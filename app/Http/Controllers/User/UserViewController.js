@@ -1,10 +1,26 @@
+// UserViewController.js
 
+import UserModel from '../../../Models/UserModel.js';
 
-export default async function UserViewController(request, response) {
+export const UserViewController = {
+  async index(req, res) {
+    try {
+      // Usuário atual vindo do middleware JWT
+      const currentUser = req.user;
 
-    return response.render("users", {
+      // Buscar todos os usuários do banco
+      const users = await UserModel.findAll();
+
+      // Renderizar a view SSR
+      res.render('users', {
         header: "Aula 07 - V de Views, SSR e SSG",
-        user: request.user
-    });
-
+        currentUser,
+        users
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Erro ao carregar usuários');
+    }
+  },
 };
+

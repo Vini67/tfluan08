@@ -3,42 +3,37 @@ import jwt from 'jsonwebtoken';
 import UserModel from '../../../Models/UserModel.js';
 
 export default async function LoginController(request, response) {
-
     const email = request.body.email;
     const password = request.body.password;
 
-    if (password === "" || password === null) {
+    if (!password) {
         return response.status(401).json({ error: 'Credenciais inválidas' });
     }
 
     const JWT_SECRET = process.env.JWT_SECRET;
-
     const JWT_EXPIRES_IN_MINUTES = 10;
-
     const JWT_EXPIRES_IN = JWT_EXPIRES_IN_MINUTES + "m";
 
     try {
-        // Aqui iremos buscar
-        const userModel = await UserModel.findOne(
-            {
-                where: {
-                    email: email
-                }
-            }
-        );
+        // Buscar usuário pelo e-mail
+        const userModel = await UserModel.findOne({
+            where: { email: email }
+        });
+        console.log('Usuário encontrado:', userModel);
 
         if (!userModel) {
             return response.status(401).json({ error: 'Credenciais inválidas' });
         }
 
-        // 2. Comparar password
+        // Comparar senha
         const senhaValida = await bcrypt.compare(password, userModel.password);
+        console.log('Senha válida?', senhaValida);
 
         if (!senhaValida) {
             return response.status(401).json({ error: 'Credenciais inválidas' });
         }
 
-        // 3. Gerar JWT
+        // Gerar JWT
         const payload = {
             id: userModel.id,
             email: userModel.email,
@@ -47,8 +42,7 @@ export default async function LoginController(request, response) {
 
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 
-        //4. Inserir cookie
-
+        // Inserir cookie
         const COOKIE_MAX_AGE_MS = JWT_EXPIRES_IN_MINUTES * 60 * 1000;
 
         response.cookie('token', token, {
@@ -63,5 +57,4 @@ export default async function LoginController(request, response) {
         console.error('Erro no login:', error);
         return response.status(500).json({ error: 'Erro interno no servidor' });
     }
-
 }
